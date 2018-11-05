@@ -31,7 +31,7 @@ namespace NewspaperSellerSimulation
             DataColumn col;
             List<NewspaperSellerModels.PerformanceMeasures> PerformanceMeasuresList = new List<NewspaperSellerModels.PerformanceMeasures>();
 
-            string testcase = Constants.FileNames.TestCase2;
+            string testcase = Constants.FileNames.TestCase3;
             string path = @"..\..\TestCases\"+testcase;
             SimulationSystem simulation_sys = new SimulationSystem();
             simulation_sys.start_simulation(path);

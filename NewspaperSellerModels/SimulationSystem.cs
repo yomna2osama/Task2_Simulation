@@ -12,7 +12,7 @@ namespace NewspaperSellerModels
         public SimulationSystem()
         {
             DayTypeDistributions = new List<DayTypeDistribution>();
-            DemandDistributions = new List<DemandDistributions>();
+            DemandDistributions = new List<DemandDistribution>();
             SimulationTable = new List<SimulationCase>();
             PerformanceMeasures = new PerformanceMeasures();
         }
@@ -24,7 +24,7 @@ namespace NewspaperSellerModels
         public decimal ScrapPrice { get; set; }
         public decimal UnitProfit { get; set; }
         public List<DayTypeDistribution> DayTypeDistributions { get; set; }
-        public List<DemandDistributions> DemandDistributions { get; set; }
+        public List<DemandDistribution> DemandDistributions { get; set; }
 
         ///////////// OUTPUTS /////////////
         public List<SimulationCase> SimulationTable { get; set; }
@@ -112,7 +112,7 @@ namespace NewspaperSellerModels
                         while (str != "" && str != null)
                         {
                             string[] substrings = str.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                            DemandDistributions DD = new DemandDistributions();
+                            DemandDistribution DD = new DemandDistribution();
                             DD.Demand = int.Parse(substrings[0]);
                             DayTypeDistribution DTD_good = new DayTypeDistribution();
                             DayTypeDistribution DTD_fair = new DayTypeDistribution();
@@ -152,12 +152,18 @@ namespace NewspaperSellerModels
             DayTypeDistributions[size - 1].MaxRange = 0;
             for (int i = 0; i < size; i++)
             {
-                DayTypeDistributions[i].MaxRange = Convert.ToInt32(DayTypeDistributions[i].CummProbability * 100);
+                if (DayTypeDistributions[i].Probability != 0)
+                    DayTypeDistributions[i].MaxRange = Convert.ToInt32(DayTypeDistributions[i].CummProbability * 100);
+                else
+                    DayTypeDistributions[i].MaxRange = 0;
             }
             DayTypeDistributions[0].range = Convert.ToString(DayTypeDistributions[0].MinRange) + " - " + Convert.ToString(DayTypeDistributions[0].MaxRange);
             for (int i = 1; i < size; i++)
             {
-                DayTypeDistributions[i].MinRange = DayTypeDistributions[i - 1].MaxRange + 1;
+                if (DayTypeDistributions[i].Probability != 0)
+                    DayTypeDistributions[i].MinRange = DayTypeDistributions[i - 1].MaxRange + 1;
+                else
+                    DayTypeDistributions[i].MinRange = 0;
                 DayTypeDistributions[i].range = Convert.ToString(DayTypeDistributions[i].MinRange) + " - " + Convert.ToString(DayTypeDistributions[i].MaxRange);
 
             }

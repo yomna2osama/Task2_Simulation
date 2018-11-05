@@ -130,9 +130,9 @@ E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSe
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerSimulation.exe
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerSimulation.pdb
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerModels.dll
-E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerTesting.dll
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerModels.pdb
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.csprojResolveAssemblyReference.cache
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.Form1.resources
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.Properties.Resources.resources
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.csproj.GenerateResource.Cache
+E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerTesting.dll

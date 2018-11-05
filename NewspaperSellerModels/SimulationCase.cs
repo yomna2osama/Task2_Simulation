@@ -20,7 +20,7 @@ namespace NewspaperSellerModels
         public decimal DailyNetProfit { get; set; }
         static Random rnd;
 
-        public void set_dem_type(int dayno,List<DemandDistributions> dem_distable,List<DayTypeDistribution> day_distable)
+        public void set_dem_type(int dayno,List<DemandDistribution> dem_distable,List<DayTypeDistribution> day_distable)
         {
             this.DayNo = dayno;
             rnd = new Random();

@@ -37,3 +37,4 @@ E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSe
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.csprojResolveAssemblyReference.cache
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.dll
 E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.pdb
+E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerModels\bin\Debug\NewspaperSellerTesting.dll
