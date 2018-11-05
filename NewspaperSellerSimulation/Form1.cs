@@ -17,8 +17,7 @@ namespace NewspaperSellerSimulation
         public Form1()
         {
             InitializeComponent();
-
-            
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,7 +31,7 @@ namespace NewspaperSellerSimulation
             DataColumn col;
             List<NewspaperSellerModels.PerformanceMeasures> PerformanceMeasuresList = new List<NewspaperSellerModels.PerformanceMeasures>();
 
-            string testcase = Constants.FileNames.TestCase1;
+            string testcase = Constants.FileNames.TestCase2;
             string path = @"..\..\TestCases\"+testcase;
             SimulationSystem simulation_sys = new SimulationSystem();
             simulation_sys.start_simulation(path);
@@ -71,6 +70,9 @@ namespace NewspaperSellerSimulation
             PerformanceMeasuresList.Add(simulation_sys.PerformanceMeasures);
             PerformanceMeasures.DataSource = PerformanceMeasuresList;
             SimulationTable.DataSource = simulation_sys.SimulationTable;
+            string testresult = TestingManager.Test(simulation_sys, testcase);
+            MessageBox.Show(testresult);
+
         }
 
         private void PerformanceMeasures_CellContentClick(object sender, DataGridViewCellEventArgs e)

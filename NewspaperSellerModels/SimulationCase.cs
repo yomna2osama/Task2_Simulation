@@ -30,7 +30,7 @@ namespace NewspaperSellerModels
             this.RandomDemand = rnd.Next(1, 101);
             for (int i = 0; i < day_distable.Count; i++)
             {
-                if (this.RandomNewsDayType >= day_distable[i].MinRange && this.RandomNewsDayType < day_distable[i].MaxRange)
+                if (this.RandomNewsDayType >= day_distable[i].MinRange && this.RandomNewsDayType <= day_distable[i].MaxRange)
                 {
                     this.NewsDayType = day_distable[i].DayType;
                     break;
@@ -38,7 +38,7 @@ namespace NewspaperSellerModels
             }
             for (int i = 0; i < dem_distable.Count; i++)
             {
-                    if (this.RandomDemand >= dem_distable[i].DayTypeDistributions[(int)this.NewsDayType].MinRange && this.RandomDemand < dem_distable[i].DayTypeDistributions[(int)this.NewsDayType].MaxRange)
+                    if (this.RandomDemand >= dem_distable[i].DayTypeDistributions[(int)this.NewsDayType].MinRange && this.RandomDemand <= dem_distable[i].DayTypeDistributions[(int)this.NewsDayType].MaxRange)
                     {
                         this.Demand = dem_distable[i].Demand;
                         break;
