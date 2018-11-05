@@ -19,13 +19,13 @@ namespace NewspaperSellerModels
         public decimal ScrapProfit { get; set; }
         public decimal DailyNetProfit { get; set; }
 
-        public void set_dem_type(int dayno, ref DemandDistribution[] dem_distable, ref DayTypeDistribution[] day_distable)
+        public void set_dem_type(int dayno,List<DemandDistributions> dem_distable,List<DayTypeDistribution> day_distable)
         {
             this.DayNo = dayno;
             Random rand = new Random();
             this.RandomNewsDayType = rand.Next(1, 101);
             this.RandomDemand = rand.Next(1, 101);
-            for (int i = 0; i < day_distable.Length; i++)
+            for (int i = 0; i < day_distable.Count; i++)
             {
                 if (this.RandomNewsDayType >= day_distable[i].MinRange && this.RandomNewsDayType < day_distable[i].MaxRange)
                 {
@@ -33,7 +33,7 @@ namespace NewspaperSellerModels
                     break;
                 }
             }
-            for (int i = 0; i < dem_distable.Length; i++)
+            for (int i = 0; i < dem_distable.Count; i++)
             {
                     if (this.RandomDemand >= dem_distable[i].DayTypeDistributions[(int)this.NewsDayType].MinRange && this.RandomDemand < dem_distable[i].DayTypeDistributions[(int)this.NewsDayType].MaxRange)
                     {
