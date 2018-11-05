@@ -13,5 +13,7 @@ namespace NewspaperSellerModels
         public decimal CummProbability { get; set; }
         public int MinRange { get; set; }
         public int MaxRange { get; set; }
+
+        public string range { get; set; }
     }
 }

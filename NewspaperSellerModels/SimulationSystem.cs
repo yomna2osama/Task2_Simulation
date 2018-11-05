@@ -30,6 +30,12 @@ namespace NewspaperSellerModels
         public List<SimulationCase> SimulationTable { get; set; }
         public PerformanceMeasures PerformanceMeasures { get; set; }
 
+        public void start_simulation(string filepath)
+        {
+            ReadInput(filepath);
+            generate_cumulative_range(DayTypeDistributions);
+            fill_DemandDistributions();
+        }
         public void ReadInput(string filepath)
         {
             string str;
@@ -53,19 +59,19 @@ namespace NewspaperSellerModels
                 }
                 else if (str == "PurchasePrice")
                 {
-                    PurchasePrice = int.Parse(SR.ReadLine());
+                    PurchasePrice = decimal.Parse(SR.ReadLine());
                     SR.ReadLine();
                     continue;
                 }
                 else if (str == "ScrapPrice")
                 {
-                    ScrapPrice = int.Parse(SR.ReadLine());
+                    ScrapPrice = decimal.Parse(SR.ReadLine());
                     SR.ReadLine();
                     continue;
                 }
                 else if (str == "SellingPrice")
                 {
-                    SellingPrice = int.Parse(SR.ReadLine());
+                    SellingPrice = decimal.Parse(SR.ReadLine());
                     SR.ReadLine();
                     continue;
                 }
@@ -100,11 +106,11 @@ namespace NewspaperSellerModels
                             DayTypeDistribution DTD_fair = new DayTypeDistribution();
                             DayTypeDistribution DTD_poor = new DayTypeDistribution();
                             DTD_good.Probability = decimal.Parse(substrings[1]);
-                            DTD_good.DayType = (Enums.DayType)0;
+                            DTD_good.DayType = Enums.DayType.Good;
                             DTD_fair.Probability = decimal.Parse(substrings[2]);
-                            DTD_fair.DayType = (Enums.DayType)1;
+                            DTD_fair.DayType = Enums.DayType.Fair;
                             DTD_poor.Probability = decimal.Parse(substrings[3]);
-                            DTD_poor.DayType = (Enums.DayType)2;
+                            DTD_poor.DayType = Enums.DayType.Poor;
 
                             DD.DayTypeDistributions.Add(DTD_good);
                             DD.DayTypeDistributions.Add(DTD_fair);
@@ -117,6 +123,40 @@ namespace NewspaperSellerModels
             }
             SR.Close();
 
+        }
+
+        public void generate_cumulative_range(List<DayTypeDistribution> dist)
+        {
+            int size = dist.Count;
+
+            //fill Cumulative column
+            dist[0].CummProbability = dist[0].Probability;
+            for (int i = 1; i < size; i++)
+            {
+                dist[i].CummProbability = dist[i - 1].CummProbability + dist[i].Probability;
+            }
+            //fill MinRange , MaxRange
+            dist[0].MinRange = 1;
+            dist[size - 1].MaxRange = 0;
+            for (int i = 0; i < size; i++)
+            {
+                dist[i].MaxRange = Convert.ToInt32(dist[i].CummProbability * 100);
+            }
+            dist[0].range = Convert.ToString(dist[0].MinRange) + " - " + Convert.ToString(dist[0].MaxRange);
+            for (int i = 1; i < size; i++)
+            {
+                dist[i].MinRange = dist[i - 1].MaxRange + 1;
+                dist[i].range = Convert.ToString(dist[i].MinRange) + " - " + Convert.ToString(dist[i].MaxRange);
+
+            }
+        }
+
+        public void fill_DemandDistributions()
+        {
+            for(int i=0;i<DemandDistributions.Count;i++)
+            {
+                generate_cumulative_range(DemandDistributions[i].DayTypeDistributions);
+            }
         }
     }
 }
