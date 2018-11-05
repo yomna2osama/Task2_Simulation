@@ -33,12 +33,9 @@ namespace NewspaperSellerModels
         public void start_simulation(string filepath)
         {
             ReadInput(filepath);
-<<<<<<< HEAD
             generate_cumulative_range();
             generate_cumulative_Demand_range();
-=======
-            generate_cumulative_range(DayTypeDistributions);
-            fill_DemandDistributions();
+
             SimulationCase tempcase = new SimulationCase();
             for (int i =0; i<NumOfRecords;i++)
             {
@@ -48,7 +45,7 @@ namespace NewspaperSellerModels
             }
             PerformanceMeasures.calculate_perfrmanceMeasr(SimulationTable);
 
->>>>>>> 44aa55b59cb5691cdf02174a17f130720cf5cec4
+
         }
         public void ReadInput(string filepath)
         {
@@ -192,9 +189,7 @@ namespace NewspaperSellerModels
                 }
             }
         }
-<<<<<<< HEAD
 
-=======
         /*public void calculate_perfrmanceMeasr()
         {
             PerformanceMeasures.TotalSalesProfit = 0;
@@ -248,6 +243,5 @@ namespace NewspaperSellerModels
                  }
              }
          }*/
->>>>>>> 44aa55b59cb5691cdf02174a17f130720cf5cec4
     }
 }
