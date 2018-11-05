@@ -85,6 +85,7 @@
             this.PerformanceMeasures.Name = "PerformanceMeasures";
             this.PerformanceMeasures.Size = new System.Drawing.Size(678, 83);
             this.PerformanceMeasures.TabIndex = 3;
+            this.PerformanceMeasures.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PerformanceMeasures_CellContentClick);
             // 
             // label1
             // 

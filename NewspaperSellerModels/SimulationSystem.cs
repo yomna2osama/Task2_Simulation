@@ -178,12 +178,18 @@ namespace NewspaperSellerModels
                 DemandDistributions[size - 1].DayTypeDistributions[j].MaxRange = 0;
                 for (int i = 0; i < size; i++)
                 {
-                    DemandDistributions[i].DayTypeDistributions[j].MaxRange = Convert.ToInt32(DemandDistributions[i].DayTypeDistributions[j].CummProbability * 100);
+                    if (DemandDistributions[i].DayTypeDistributions[j].Probability != 0)
+                        DemandDistributions[i].DayTypeDistributions[j].MaxRange = Convert.ToInt32(DemandDistributions[i].DayTypeDistributions[j].CummProbability * 100);
+                    else
+                        DemandDistributions[i].DayTypeDistributions[j].MaxRange = 0;
                 }
                 DemandDistributions[0].DayTypeDistributions[j].range = Convert.ToString(DemandDistributions[0].DayTypeDistributions[j].MinRange) + " - " + Convert.ToString(DemandDistributions[0].DayTypeDistributions[j].MaxRange);
                 for (int i = 1; i < size; i++)
                 {
-                    DemandDistributions[i].DayTypeDistributions[j].MinRange = DemandDistributions[i - 1].DayTypeDistributions[j].MaxRange + 1;
+                    if (DemandDistributions[i].DayTypeDistributions[j].Probability != 0)
+                        DemandDistributions[i].DayTypeDistributions[j].MinRange = DemandDistributions[i - 1].DayTypeDistributions[j].MaxRange + 1;
+                    else
+                        DemandDistributions[i].DayTypeDistributions[j].MinRange = 0;
                     DemandDistributions[i].DayTypeDistributions[j].range = Convert.ToString(DemandDistributions[i].DayTypeDistributions[j].MinRange) + " - " + Convert.ToString(DemandDistributions[i].DayTypeDistributions[j].MaxRange);
 
                 }

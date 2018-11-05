@@ -30,6 +30,7 @@ namespace NewspaperSellerSimulation
         {
             DataTable DemandTable = new DataTable();
             DataColumn col;
+            List<NewspaperSellerModels.PerformanceMeasures> PerformanceMeasuresList = new List<NewspaperSellerModels.PerformanceMeasures>();
 
             string testcase = Constants.FileNames.TestCase1;
             string path = @"..\..\TestCases\"+testcase;
@@ -67,8 +68,14 @@ namespace NewspaperSellerSimulation
             }
 
             Demanddistributions.DataSource = DemandTable;
-            PerformanceMeasures.DataSource = simulation_sys.PerformanceMeasures;
+            PerformanceMeasuresList.Add(simulation_sys.PerformanceMeasures);
+            PerformanceMeasures.DataSource = PerformanceMeasuresList;
             SimulationTable.DataSource = simulation_sys.SimulationTable;
+        }
+
+        private void PerformanceMeasures_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
