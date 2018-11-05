@@ -39,6 +39,7 @@ namespace NewspaperSellerModels
             SimulationCase tempcase = new SimulationCase();
             for (int i =0; i<NumOfRecords;i++)
             {
+                tempcase = new SimulationCase();
                 tempcase.set_dem_type(i + 1, DemandDistributions, DayTypeDistributions);
                 tempcase.calculate_costs(NumOfNewspapers, NumOfRecords, PurchasePrice, ScrapPrice, SellingPrice);
                 SimulationTable.Add(tempcase);
