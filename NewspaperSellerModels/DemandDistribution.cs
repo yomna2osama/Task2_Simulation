@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace NewspaperSellerModels
 {
-    public class DemandDistribution
+    public class DemandDistributions
     {
-        public DemandDistribution()
+        public DemandDistributions()
         {
             DayTypeDistributions = new List<DayTypeDistribution>();
         }

@@ -116,3 +116,11 @@ E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Template\NewspaperSellerSimu
 D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerSimulation.exe.config
 D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.exe
 D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.pdb
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerSimulation.exe
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerSimulation.pdb
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerModels.dll
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\bin\Debug\NewspaperSellerModels.pdb
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.csprojResolveAssemblyReference.cache
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.Form1.resources
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.Properties.Resources.resources
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.csproj.GenerateResource.Cache

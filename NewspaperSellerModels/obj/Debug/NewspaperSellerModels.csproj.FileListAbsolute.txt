@@ -27,3 +27,8 @@ C:\Users\soa\Desktop\Template\Template\NewspaperSellerModels\bin\Debug\Newspaper
 C:\Users\soa\Desktop\Template\Template\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.csproj.CoreCompileInputs.cache
 C:\Users\soa\Desktop\Template\Template\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.dll
 C:\Users\soa\Desktop\Template\Template\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.pdb
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerModels\bin\Debug\NewspaperSellerModels.dll
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerModels\bin\Debug\NewspaperSellerModels.pdb
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.csprojResolveAssemblyReference.cache
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.dll
+D:\Redirected Profile\Desktop\fcis\kolya\year 4\git\Task2_Simulation\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.pdb

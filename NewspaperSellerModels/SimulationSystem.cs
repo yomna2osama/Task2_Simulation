@@ -12,7 +12,7 @@ namespace NewspaperSellerModels
         public SimulationSystem()
         {
             DayTypeDistributions = new List<DayTypeDistribution>();
-            DemandDistributions = new List<DemandDistribution>();
+            DemandDistributions = new List<DemandDistributions>();
             SimulationTable = new List<SimulationCase>();
             PerformanceMeasures = new PerformanceMeasures();
         }
@@ -24,17 +24,26 @@ namespace NewspaperSellerModels
         public decimal ScrapPrice { get; set; }
         public decimal UnitProfit { get; set; }
         public List<DayTypeDistribution> DayTypeDistributions { get; set; }
-        public List<DemandDistribution> DemandDistributions { get; set; }
+        public List<DemandDistributions> DemandDistributions { get; set; }
 
         ///////////// OUTPUTS /////////////
         public List<SimulationCase> SimulationTable { get; set; }
         public PerformanceMeasures PerformanceMeasures { get; set; }
-
+ 
         public void start_simulation(string filepath)
         {
             ReadInput(filepath);
             generate_cumulative_range(DayTypeDistributions);
             fill_DemandDistributions();
+            SimulationCase tempcase = new SimulationCase();
+            for (int i =0; i<NumOfRecords;i++)
+            {
+                tempcase.set_dem_type(i + 1, DemandDistributions, DayTypeDistributions);
+                tempcase.calculate_costs(NumOfNewspapers, NumOfRecords, PurchasePrice, ScrapPrice, SellingPrice);
+                SimulationTable.Add(tempcase);
+            }
+            PerformanceMeasures.calculate_perfrmanceMeasr(SimulationTable);
+
         }
         public void ReadInput(string filepath)
         {
@@ -100,7 +109,7 @@ namespace NewspaperSellerModels
                         while (str != "" && str != null)
                         {
                             string[] substrings = str.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                            DemandDistribution DD = new DemandDistribution();
+                            DemandDistributions DD = new DemandDistributions();
                             DD.Demand = int.Parse(substrings[0]);
                             DayTypeDistribution DTD_good = new DayTypeDistribution();
                             DayTypeDistribution DTD_fair = new DayTypeDistribution();
@@ -158,5 +167,58 @@ namespace NewspaperSellerModels
                 generate_cumulative_range(DemandDistributions[i].DayTypeDistributions);
             }
         }
+        /*public void calculate_perfrmanceMeasr()
+        {
+            PerformanceMeasures.TotalSalesProfit = 0;
+            PerformanceMeasures.TotalCost = 0;
+            PerformanceMeasures.TotalLostProfit = 0;
+            PerformanceMeasures.TotalScrapProfit = 0;
+            PerformanceMeasures.TotalNetProfit = 0;
+            PerformanceMeasures.DaysWithMoreDemand = 0;
+            PerformanceMeasures.DaysWithUnsoldPapers = 0;
+
+            for (int i = 0; i < simulation_table.Count; i++)
+            {
+                PerformanceMeasures.TotalSalesProfit += simulation_table[i].DailyCost;
+                PerformanceMeasures.TotalCost += simulation_table[i].SalesProfit;
+                if (simulation_table[i].LostProfit != 0)
+                {
+                    PerformanceMeasures.TotalLostProfit += simulation_table[i].LostProfit;
+                    PerformanceMeasures.DaysWithMoreDemand++;
+                }
+                if (simulation_table[i].ScrapProfit != 0)
+                {
+                    PerformanceMeasures.TotalScrapProfit += simulation_table[i].ScrapProfit;
+                    PerformanceMeasures.DaysWithUnsoldPapers++;
+                }
+                PerformanceMeasures.TotalNetProfit += simulation_table[i].DailyNetProfit;
+            }
+
+        }*/
+
+        /* public void set_dem_type(int dayno)
+         {
+             SimulationTable[dayno - 1].DayNo = dayno;
+             Random rand = new Random();
+             SimulationTable[dayno - 1].RandomNewsDayType = rand.Next(1, 101);
+             SimulationTable[dayno - 1].RandomDemand = rand.Next(1, 101);
+             for (int i = 0; i < DayTypeDistributions.Count; i++)
+             {
+                 if (SimulationTable[dayno - 1].RandomNewsDayType >= DayTypeDistributions[i].MinRange && SimulationTable[dayno - 1].RandomNewsDayType < DayTypeDistributions[i].MaxRange)
+                 {
+                     SimulationTable[dayno - 1].NewsDayType = DayTypeDistributions[i].DayType;
+                     break;
+                 }
+             }
+             for (int i = 0; i < DemandDistributions.Count; i++)
+             {
+                 if (SimulationTable[dayno - 1].RandomDemand >= DemandDistributions[i].DayTypeDistributions[(int)SimulationTable[dayno - 1].NewsDayType].MinRange &&
+                     SimulationTable[dayno - 1].RandomDemand < DemandDistributions[i].DayTypeDistributions[(int)SimulationTable[dayno - 1].NewsDayType].MaxRange)
+                 {
+                     SimulationTable[dayno - 1].Demand = DemandDistributions[i].Demand;
+                     break;
+                 }
+             }
+         }*/
     }
 }
