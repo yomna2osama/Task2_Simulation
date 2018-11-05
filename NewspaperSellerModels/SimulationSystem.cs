@@ -33,8 +33,8 @@ namespace NewspaperSellerModels
         public void start_simulation(string filepath)
         {
             ReadInput(filepath);
-            generate_cumulative_range(DayTypeDistributions);
-            fill_DemandDistributions();
+            generate_cumulative_range();
+            generate_cumulative_Demand_range();
         }
         public void ReadInput(string filepath)
         {
@@ -125,38 +125,59 @@ namespace NewspaperSellerModels
 
         }
 
-        public void generate_cumulative_range(List<DayTypeDistribution> dist)
+        public void generate_cumulative_range()
         {
-            int size = dist.Count;
+            int size = DayTypeDistributions.Count;
 
             //fill Cumulative column
-            dist[0].CummProbability = dist[0].Probability;
+            DayTypeDistributions[0].CummProbability = DayTypeDistributions[0].Probability;
             for (int i = 1; i < size; i++)
             {
-                dist[i].CummProbability = dist[i - 1].CummProbability + dist[i].Probability;
+                DayTypeDistributions[i].CummProbability = DayTypeDistributions[i - 1].CummProbability + DayTypeDistributions[i].Probability;
             }
             //fill MinRange , MaxRange
-            dist[0].MinRange = 1;
-            dist[size - 1].MaxRange = 0;
+            DayTypeDistributions[0].MinRange = 1;
+            DayTypeDistributions[size - 1].MaxRange = 0;
             for (int i = 0; i < size; i++)
             {
-                dist[i].MaxRange = Convert.ToInt32(dist[i].CummProbability * 100);
+                DayTypeDistributions[i].MaxRange = Convert.ToInt32(DayTypeDistributions[i].CummProbability * 100);
             }
-            dist[0].range = Convert.ToString(dist[0].MinRange) + " - " + Convert.ToString(dist[0].MaxRange);
+            DayTypeDistributions[0].range = Convert.ToString(DayTypeDistributions[0].MinRange) + " - " + Convert.ToString(DayTypeDistributions[0].MaxRange);
             for (int i = 1; i < size; i++)
             {
-                dist[i].MinRange = dist[i - 1].MaxRange + 1;
-                dist[i].range = Convert.ToString(dist[i].MinRange) + " - " + Convert.ToString(dist[i].MaxRange);
+                DayTypeDistributions[i].MinRange = DayTypeDistributions[i - 1].MaxRange + 1;
+                DayTypeDistributions[i].range = Convert.ToString(DayTypeDistributions[i].MinRange) + " - " + Convert.ToString(DayTypeDistributions[i].MaxRange);
 
             }
         }
 
-        public void fill_DemandDistributions()
+        public void generate_cumulative_Demand_range()
         {
-            for(int i=0;i<DemandDistributions.Count;i++)
+            int size = DemandDistributions.Count;
+            for (int j = 0; j < 3; j++)
             {
-                generate_cumulative_range(DemandDistributions[i].DayTypeDistributions);
+                //fill Cumulative column
+                DemandDistributions[0].DayTypeDistributions[j].CummProbability = DemandDistributions[0].DayTypeDistributions[j].Probability;
+                for (int i = 1; i < size; i++)
+                {
+                    DemandDistributions[i].DayTypeDistributions[j].CummProbability = DemandDistributions[i - 1].DayTypeDistributions[j].CummProbability + DemandDistributions[i].DayTypeDistributions[j].Probability;
+                }
+                //fill MinRange , MaxRange
+                DemandDistributions[0].DayTypeDistributions[j].MinRange = 1;
+                DemandDistributions[size - 1].DayTypeDistributions[j].MaxRange = 0;
+                for (int i = 0; i < size; i++)
+                {
+                    DemandDistributions[i].DayTypeDistributions[j].MaxRange = Convert.ToInt32(DemandDistributions[i].DayTypeDistributions[j].CummProbability * 100);
+                }
+                DemandDistributions[0].DayTypeDistributions[j].range = Convert.ToString(DemandDistributions[0].DayTypeDistributions[j].MinRange) + " - " + Convert.ToString(DemandDistributions[0].DayTypeDistributions[j].MaxRange);
+                for (int i = 1; i < size; i++)
+                {
+                    DemandDistributions[i].DayTypeDistributions[j].MinRange = DemandDistributions[i - 1].DayTypeDistributions[j].MaxRange + 1;
+                    DemandDistributions[i].DayTypeDistributions[j].range = Convert.ToString(DemandDistributions[i].DayTypeDistributions[j].MinRange) + " - " + Convert.ToString(DemandDistributions[i].DayTypeDistributions[j].MaxRange);
+
+                }
             }
         }
+
     }
 }

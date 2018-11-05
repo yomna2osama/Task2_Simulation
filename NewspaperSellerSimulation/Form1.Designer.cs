@@ -65,7 +65,7 @@
             // Demanddistributions
             // 
             this.Demanddistributions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Demanddistributions.Location = new System.Drawing.Point(83, 470);
+            this.Demanddistributions.Location = new System.Drawing.Point(83, 419);
             this.Demanddistributions.Name = "Demanddistributions";
             this.Demanddistributions.Size = new System.Drawing.Size(439, 270);
             this.Demanddistributions.TabIndex = 1;
@@ -75,7 +75,7 @@
             this.daytypedistributions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.daytypedistributions.Location = new System.Drawing.Point(83, 297);
             this.daytypedistributions.Name = "daytypedistributions";
-            this.daytypedistributions.Size = new System.Drawing.Size(439, 167);
+            this.daytypedistributions.Size = new System.Drawing.Size(439, 116);
             this.daytypedistributions.TabIndex = 2;
             // 
             // PerformanceMeasures

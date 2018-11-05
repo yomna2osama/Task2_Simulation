@@ -28,6 +28,9 @@ namespace NewspaperSellerSimulation
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DataTable DemandTable = new DataTable();
+            DataColumn col;
+
             string testcase = Constants.FileNames.TestCase1;
             string path = @"E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\TestCases\"+testcase;
             SimulationSystem simulation_sys = new SimulationSystem();
@@ -40,13 +43,30 @@ namespace NewspaperSellerSimulation
             daytypedistributions.DataSource = simulation_sys.DayTypeDistributions;
             daytypedistributions.Columns.Remove("MinRange");
             daytypedistributions.Columns.Remove("MaxRange");
-            
-            for(int i=0; i<simulation_sys.DemandDistributions.Count;i++)
+
+            col = new DataColumn("Demand");
+            DemandTable.Columns.Add(col);
+
+            col = new DataColumn("Good Probability");
+            DemandTable.Columns.Add(col);
+            col = new DataColumn("Fair Probability");
+            DemandTable.Columns.Add(col);
+            col = new DataColumn("Poor Probability");
+            DemandTable.Columns.Add(col);
+
+            col = new DataColumn("Good Range");
+            DemandTable.Columns.Add(col);
+            col = new DataColumn("Fair Range");
+            DemandTable.Columns.Add(col);
+            col = new DataColumn("Poor Range");
+            DemandTable.Columns.Add(col);
+
+            for (int i = 0; i < simulation_sys.DemandDistributions.Count; i++)
             {
-                Demanddistributions.DataSource=simulation_sys.DemandDistributions[i].DayTypeDistributions;
+                DemandTable.Rows.Add(simulation_sys.DemandDistributions[i].Demand, simulation_sys.DemandDistributions[i].DayTypeDistributions[0].Probability, simulation_sys.DemandDistributions[i].DayTypeDistributions[1].Probability, simulation_sys.DemandDistributions[i].DayTypeDistributions[2].Probability, simulation_sys.DemandDistributions[i].DayTypeDistributions[0].range, simulation_sys.DemandDistributions[i].DayTypeDistributions[1].range, simulation_sys.DemandDistributions[i].DayTypeDistributions[2].range);
             }
-            //Demanddistributions.Columns.Add(simulation_sys.DemandDistributions);
-            
+
+            Demanddistributions.DataSource = DemandTable;
             PerformanceMeasures.DataSource = simulation_sys.PerformanceMeasures;
             SimulationTable.DataSource = simulation_sys.SimulationTable;
         }
