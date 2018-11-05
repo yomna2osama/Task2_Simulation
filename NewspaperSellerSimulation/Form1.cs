@@ -32,7 +32,7 @@ namespace NewspaperSellerSimulation
             DataColumn col;
 
             string testcase = Constants.FileNames.TestCase1;
-            string path = @"E:\year4_1\Simulation\Tasks\Task 2\Task2 - Template\Task2_Simulation\NewspaperSellerSimulation\TestCases\"+testcase;
+            string path = @"..\..\TestCases\"+testcase;
             SimulationSystem simulation_sys = new SimulationSystem();
             simulation_sys.start_simulation(path);
             label12.Text = simulation_sys.NumOfNewspapers.ToString();
