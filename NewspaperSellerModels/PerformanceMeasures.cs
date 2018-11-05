@@ -28,8 +28,8 @@ namespace NewspaperSellerModels
 
             for (int i = 0; i < simulation_table.Count; i++)
             {
-                this.TotalSalesProfit += simulation_table[i].DailyCost;
-                this.TotalCost += simulation_table[i].SalesProfit;
+                this.TotalCost += simulation_table[i].DailyCost;
+                this.TotalSalesProfit+= simulation_table[i].SalesProfit;
                 if (simulation_table[i].LostProfit != 0)
                 {
                     this.TotalLostProfit += simulation_table[i].LostProfit;
